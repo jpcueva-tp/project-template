@@ -8,7 +8,7 @@ export class IndexPage {
         private readonly pageUrl: string = '/',
         private readonly pageScreenshotPath: string[] = ['Index.png'],
         private readonly pageTitle: string = 'Test Website',
-        private readonly pageHeading: Locator = page.getByRole('heading', { name: 'Test Website Failed On purpose to test badge' }),
+        private readonly pageHeading: Locator = page.getByRole('heading', { name: 'Test Website' }),
         private readonly actionButton: Locator = page.locator('#actionButton'),
         private readonly message: Locator = page.locator('#message'),
         private readonly customLocator: (id: string) => Locator = (id: string) => page.locator(`#${id}`),
