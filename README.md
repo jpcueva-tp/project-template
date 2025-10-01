@@ -184,6 +184,64 @@ on:
 - Run visual regression tests
 - Upload test reports as artifacts
 
+### Viewing Test Reports
+
+Test reports are automatically published to GitHub Pages after each run.
+
+**Setup (one-time):**
+1. Go to repo Settings → Pages
+2. Set Source to "Deploy from a branch"
+3. Select branch: `gh-pages`, folder: `/ (root)`
+4. Save
+
+**Accessing reports:**
+- After setup, reports are available at: `https://jpcueva-tp.github.io/project-template/`
+- Updates automatically after each test run
+- Shows results from the latest main branch run
+
+**Alternative:** Download reports from Actions tab → Artifacts (30-day retention)
+
+### Browser Configuration
+
+**Current setup:** Chromium only (fastest CI runs)
+
+The workflow caches browser binaries to speed up subsequent runs:
+
+```yaml
+- name: Cache Playwright browsers
+  uses: actions/cache@v4
+  with:
+    path: ~/.cache/ms-playwright
+    key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+```
+
+**Benefits:**
+- Saves ~1 minute per CI run by reusing cached browser binaries
+- Automatically updates when `package-lock.json` changes
+- Uses ~300MB of GitHub's 10GB cache storage
+
+**Adding more browsers:**
+
+1. **Enable in config** (`playwright.config.ts`):
+   ```typescript
+   projects: [
+     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },  // Uncomment
+     { name: 'webkit', use: { ...devices['Desktop Safari'] } },    // Uncomment
+   ],
+   ```
+
+2. **Update CI workflow** (`.github/workflows/playwright.yml`):
+   ```yaml
+   - name: Install Playwright Browsers
+     run: npx playwright install chromium firefox webkit --with-deps
+   ```
+
+3. **Impact:**
+   - First run: Downloads all browsers (~800MB, slower)
+   - Cached runs: Restores ~800MB (still faster than no cache)
+   - More thorough cross-browser testing
+
 ## Troubleshooting
 
 **Tests fail with 404 errors:**
