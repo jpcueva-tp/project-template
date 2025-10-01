@@ -10,8 +10,9 @@ A Playwright web testing project template with TypeScript, featuring page object
 - **Page Object Model** - Clean, maintainable test architecture
 - **Custom Fixtures** - Pre-configured page objects injected into tests
 - **Visual Testing** - Screenshot comparison support
-- **Multi-Browser** - Tests run on Chromium, Firefox, and WebKit
+- **Multi-Browser Support** - Chromium enabled by default, Firefox/WebKit ready to enable
 - **TypeScript** - Full type safety across tests and page objects
+- **CI/CD Ready** - GitHub Actions workflow with browser caching and GitHub Pages reports
 
 ## Quick Start
 
