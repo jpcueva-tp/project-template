@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (button && message) {
         button.addEventListener('click', () => {
             message.textContent = 'Button clicked!';
-            console.log('Action button clicked');
         });
     }
 });

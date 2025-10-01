@@ -1,7 +1,7 @@
 # Playwright
 node_modules/
-/test-results/
-/playwright-report/
+/playwright/test-results/
+/playwright/playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
@@ -11,3 +11,7 @@ node_modules/
 
 # Claude
 .claude/
+CLAUDE.md
+
+# Environment variables
+.env

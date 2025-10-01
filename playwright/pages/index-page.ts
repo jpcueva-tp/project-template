@@ -32,4 +32,9 @@ export class IndexPage {
     async clickActionButton(): Promise<void> {
         await this.actionButton.click();
     }
+
+    async assertMessageVisible(expectedText: string): Promise<void> {
+        await expect(this.message).toBeVisible();
+        await expect(this.message).toHaveText(expectedText);
+    }
 }
