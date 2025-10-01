@@ -1,6 +1,6 @@
 # project-template
 
-[![Playwright Tests](https://github.com/jpcueva-tp/project-template/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/jpcueva-tp/project-template/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/jpcueva-tp/project-template/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/jpcueva-tp/project-template/actions/workflows/playwright.yml) [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://jpcueva-tp.github.io/project-template/)
 
 A Playwright web testing project template with TypeScript, featuring page object model architecture, custom fixtures, and automated local server management.
 
